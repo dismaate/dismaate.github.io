@@ -11,13 +11,13 @@ Dismate is a platform dedicated to helping you find like-minded individuals and 
 ## Add Your Profile 📝
 If you want to join the Dismate community and add your profile, follow these steps:
 
-1. **Direct Message (DM) Consair**: Send a direct message to our admin, Consair, expressing your interest in adding your profile.
-2. **Age Verification**: Consair will guide you through the age verification process to maintain a safe community.
-3. **Profile Addition**: Once verified, Consair will add your profile to the Dismate website.
+1. **Direct Message (DM) `.consair` **: Send a direct message to our admin, Consair, expressing your interest in adding your profile.
+2. **Age Verification**: I will guide you through the age verification process to maintain a safe community.
+3. **Profile Addition**: Once verified, I will add your profile to the Dismate website.
 
 ## Contact Consair 📬
-Feel free to DM Consair for any inquiries, assistance, or to add your profile:
-- Discord: `Consair#1234`
+Feel free to DM me for any inquiries, assistance, or to add your profile:
+- Discord: `consair.`
 
 ---
 
