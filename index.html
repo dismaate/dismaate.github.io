@@ -1,1 +1,341 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="./logo/logo.png"/>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #2c2f33;
+            transition: background-color 0.5s ease-in-out;
+        }
+
+        #container {
+            position: relative;
+            width: 60%;
+            max-width: 600px;
+            background-color: #23272a;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column; /* Arrange items vertically */
+            transition: background-color 0.5s ease-in-out;
+        }
+
+        #content {
+            display: flex;
+            align-items: center;
+            text-align: left;
+            flex: 1; /* Take remaining space */
+            margin-top: 20px;
+            margin-bottom: 20px;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        img {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            margin-right: 10px; /* Add margin to separate image and text */
+        }
+
+        h2 {
+            color: #ffffff;
+            margin-top: 0;
+            margin-bottom: 5px; /* Add margin below the title */
+        }
+
+        p {
+            color: #99aab5;
+            margin-top: 10px;
+        }
+
+        #buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .button {
+            background-color: #2c2f33;
+            color: #ffffff;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 10px;
+            transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out;
+        }
+
+        .button:hover {
+            background-color: #5165f6;
+            
+        }
+
+        .button:active {
+            transform: translateY(2px); /* Add a slight push effect when the button is clicked */
+        }
+
+       #centerBtn {
+       
+    padding: 15px;
+    width: 50px;
+       }
+
+        #centerBtn:hover {
+            background-color: #5165f6;
+        }
+
+        #arrowButtons {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0px;
+        }
+
+        #leftBtn, #rightBtn, #centerBtn {
+            margin-top: 30px;
+            background-color: #2c2f33;
+            color: #ffffff;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 10px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        #leftBtn:hover, #rightBtn:hover, #centerBtn:hover {
+            background-color: #5165f6;
+        }
+
+        footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #23272a;
+    color: #ffffff;
+    position: fixed; /* Fixed position at the bottom */
+    width: 100%; /* Full width */
+    bottom: 0; /* Stick to the bottom */
+}
+
+
+
+    </style>
+    <title>Dismate - Home</title>
+</head>
+<body>
+
+
+    <!-- Add this at the beginning of your body tag -->
+
+
+
+    <div id="container">
+
+        <div id="content">
+            <img id="profileImg" src="" alt="Profile Image">
+            <div>
+                <h2 id="profileTitle"></h2>
+                <p id="profileDescription"></p>
+            </div>
+        </div>
+
+        <div id="buttons">
+            <button class="button" onclick="handleButtonClick('YouTube')">YouTube</button>
+            <button class="button" onclick="handleButtonClick('Twitch')">Twitch</button>
+            <button class="button" onclick="handleButtonClick('Discord Server')">Discord Server</button>
+            <button class="button" onclick="handleButtonClick('GitHub')">GitHub</button>
+            <button class="button" onclick="handleButtonClick('X')">X</button>
+            <button class="button" onclick="handleButtonClick('Facebook')">Facebook</button>
+            <button class="button" onclick="handleButtonClick('Lol')">League Of Legends</button>
+            <button class="button" onclick="handleButtonClick('TikTok')">TikTok</button>
+            <button class="button" onclick="handleButtonClick('Steam')">Steam</button>
+            <button class="button" onclick="handleButtonClick('reddit')">Reddit</button>
+        </div>
+        
+        
+
+        <div id="arrowButtons">
+            <button id="leftBtn" onclick="move('left')"><i class="fas fa-arrow-left"></i></button>
+            <button id="centerBtn" onclick="handleMailButtonClick()"><i class="fas fa-envelope"></i></button>
+            <button id="rightBtn" onclick="move('right')"><i class="fas fa-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <!-- Add this at the end of your body tag -->
+<footer>
+    <p>© 2023 Zoullien . All rights reserved.</p>
+    
+</footer>
+
+
+    <script>
+        const profiles = [
+            {
+                title: 'bosspro',
+                img: './img/pfp_axel.jpg',
+                description: "Je geek sur discord depuis 1999 et j'adore geeké.",
+                links: {
+                    YouTube: 'https://www.youtube.com/user/bosspro',
+                    Twitch: 'https://www.twitch.tv/bosspro',
+                    'Discord Server': 'https://discord.gg/bosspro',
+                    GitHub: 'https://github.com/bosspro',
+                },
+                colors: {
+                    body: '#2c2f33',
+                    container: '#23272a',
+                },
+            },
+            {
+                title: 'zoullien',
+                img: './img/pfp_zoul.png',
+                description: "Codeur depuis 3ans : je débute toujours ^^.",
+                links: {
+                    YouTube: 'https://www.youtube.com/user/zoullien',
+                    Twitch: 'https://www.twitch.tv/zoullien',
+                    'Discord Server': 'https://discord.gg/zoullien',
+                    GitHub: 'https://github.com/zoullien',
+                },
+                colors: {
+                    body: '#2c2f33',
+                    container: '#23272a',
+                },
+            },
+            {
+                title: 'belugar',
+                img: 'https://images-ext-2.discordapp.net/external/1Cl4frfLUDnYkUEl2He4IYNSRuYhnfv5L26vxc6kvx0/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/1071126749573828680/d96e15488f500bd40cdb8aadb8ee9150?format=webp&width=281&height=281',
+                description: "Tu veux manger un buffet avec moi.",
+                links: {
+                    YouTube: 'https://www.youtube.com/user/belugar',
+                    Twitch: 'https://www.twitch.tv/belugar',
+                    'Discord Server': 'https://discord.gg/belugar',
+                    GitHub: 'https://github.com/belugar',
+                },
+                colors: {
+                    body: '#2c2f33',
+                    container: '#23272a',
+                },
+            },
+            {
+                title: 'therealazurii',
+                img: './img/pfp_azurii.gif',
+                description: "Inde game dev, from scripting to art!",
+                links: {
+                    YouTube: 'https://www.youtube.com/user/belugar',
+                    Twitch: 'https://www.twitch.tv/belugar',
+                    'Discord Server': 'https://discord.gg/belugar',
+                    GitHub: 'https://github.com/belugar',
+                },
+                colors: {
+                    body: '#2c2f33',
+                    container: '#23272a',
+                },
+            },
+            {
+                title: 'poblolerigolo',
+                img: './img/pfp_pablo.png',
+                description: "I  love all of my cutie patooties ;3",
+                links: {
+                    YouTube: 'https://www.youtube.com/user/belugar',
+                    Twitch: 'https://www.twitch.tv/belugar',
+                    'Discord Server': 'https://discord.gg/belugar',
+                    GitHub: 'https://github.com/belugar',
+                },
+                colors: {
+                    body: '#2c2f33',
+                    container: '#23272a',
+                },
+            },
+            {
+                title: 'rafarodchr',
+                img: './img/pfp_rafar.jpg',
+                description: "On t'invite à la magie Y a pas de raccourci Oublie tes soucis Et viens faire la folie",
+                links: {
+                    YouTube: 'https://www.youtube.com/user/belugar',
+                    Twitch: 'https://www.twitch.tv/belugar',
+                    'Discord Server': 'https://discord.gg/belugar',
+                    GitHub: 'https://github.com/belugar',
+                },
+                colors: {
+                    body: '#2c2f33',
+                    container: '#23272a',
+                },
+            },
+        ];
+
+        const number = Math.floor(Math.random() * 6);
+        let currentProfileIndex = number;
+
+        function updateProfile() {
+            const profile = profiles[currentProfileIndex];
+            document.getElementById('profileImg').src = profile.img;
+            document.getElementById('profileTitle').textContent = profile.title;
+            document.getElementById('profileDescription').textContent = profile.description;
+            document.body.style.backgroundColor = profile.colors.body;
+            document.getElementById('container').style.backgroundColor = profile.colors.container;
+            document.getElementById('content').style.opacity = 1;
+        }
+
+        function handleButtonClick(platform) {
+            const profile = profiles[currentProfileIndex];
+            const link = profile.links[platform];
+            if (link) {
+                window.open(link, '_blank'); // Open link in a new tab
+            }
+        }
+        function handleMailButtonClick() {
+    const profile = profiles[currentProfileIndex];
+
+    // Create a temporary input element
+    const tempInput = document.createElement("input");
+    tempInput.value = profile.title;
+    document.body.appendChild(tempInput);
+
+    // Select the input text
+    tempInput.select();
+    tempInput.setSelectionRange(0, 99999); /* For mobile devices */
+
+    // Execute copy command
+    document.execCommand("copy");
+
+    // Remove the temporary input element
+    document.body.removeChild(tempInput);
+
+    // Provide feedback (you can customize this part)
+    alert(`Username copied : ${profile.title}`);
+}
+
+
+
+        function move(direction) {
+            document.getElementById('content').style.opacity = 0;
+
+            setTimeout(() => {
+                if (direction === 'left') {
+                    currentProfileIndex = (currentProfileIndex - 1 + profiles.length) % profiles.length;
+                } else if (direction === 'right') {
+                    currentProfileIndex = (currentProfileIndex + 1) % profiles.length;
+                }
+
+                updateProfile();
+            }, 500); // Set the timeout duration to match the transition duration
+        }
+
+        // Initial profile update
+        updateProfile();
+    </script>
+
+</body>
+</html>
